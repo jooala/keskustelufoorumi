@@ -1,9 +1,9 @@
-from application import app, db
+from application import app, db, login_required
 from flask import redirect, render_template, request, url_for
 from application.categories.models import Categories
 from application.categories.forms import CategoriesForm
 
-from flask_login import login_required
+
 
 
 
@@ -12,7 +12,7 @@ def categories_index():
     return render_template("categories/list.html", categories = Categories.query.all())
 
 @app.route("/categories/new/")
-@login_required
+@login_required(role="ADMIN")
 def categories_form():
 
     return render_template("categories/new.html", form=CategoriesForm())
@@ -22,7 +22,7 @@ def categories_form():
   
 
 @app.route("/categories/<category_id>/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def categories_set_name(category_id):
     form = CategoriesForm(request.form)
     if not form.validate():
@@ -35,7 +35,7 @@ def categories_set_name(category_id):
 
 
 @app.route("/categories/<category_id>/", methods=["GET", "POST"])
-@login_required
+@login_required(role="ADMIN")
 def categories_delete(category_id):
     t = Categories.query.get(category_id)
     db.session().delete(t)
@@ -45,7 +45,7 @@ def categories_delete(category_id):
 
 
 @app.route("/categories/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def categories_create():
     form = CategoriesForm(request.form)
     if not form.validate():

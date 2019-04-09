@@ -29,3 +29,9 @@ def topics_create(category_id):
     db.session().commit()
 
     return redirect(url_for("index"))
+
+@app.route("/topics/<topic_id>")
+@login_required
+def topic_link(topic_id):
+    return render_template(
+        "topics/topic.html", topic_id=topic_id)

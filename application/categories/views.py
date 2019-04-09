@@ -24,6 +24,9 @@ def categories_form():
 @app.route("/categories/<category_id>/", methods=["POST"])
 @login_required
 def categories_set_name(category_id):
+    form = CategoriesForm(request.form)
+    if not form.validate():
+        return render_template("categories/list.html", categories = Categories.query.all())
     t = Categories.query.get(category_id)
     t.name = request.form.get("name")
     db.session().commit()
@@ -47,10 +50,6 @@ def categories_create():
     form = CategoriesForm(request.form)
     if not form.validate():
         return render_template("categories/new.html", form=form)
-    t = Categories(form.name.data, form.desc.data)
-
-
-    return render_template("categories/new.html", form = form)
     t = Categories(form.name.data, form.desc.data)
   
     db.session().add(t)

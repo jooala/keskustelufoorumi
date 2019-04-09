@@ -1,6 +1,5 @@
 from application import db
 
-<<<<<<< HEAD
 
 class User(db.Model):
 
@@ -12,16 +11,6 @@ class User(db.Model):
         db.DateTime,
         default=db.func.current_timestamp(),
         onupdate=db.func.current_timestamp())
-=======
-class User(db.Model):
-
-    __tablename__ = "account"
-  
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-                              onupdate=db.func.current_timestamp())
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
 
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
@@ -31,11 +20,7 @@ class User(db.Model):
         self.name = name
         self.username = username
         self.password = password
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
+        
     def get_id(self):
         return self.id
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% extends "layout.html" %} {% block body %}
 {{ error }}
 <div class="row justify-content-md-center">
@@ -22,34 +21,4 @@
   </div>
 </div>
 {% endblock %}
-=======
-{% extends "layout.html" %}
 
-{% block body %}
-{{ error }}
-<form method="POST" action="{{ url_for('auth_login') }}">
-  <table>
-    <tr>
-      <td>
-	{{ form.username.label }}
-      </td>
-      <td>
-	{{ form.username }}
-      </td>
-    </tr>
-    <tr>
-      <td>
-	{{ form.password.label }}
-      </td>
-      <td>
-	{{ form.password }}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-	<input type="submit" value="Login"/>
-      </td>
-    </tr>
-</form>
-{% endblock %}
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin

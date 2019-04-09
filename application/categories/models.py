@@ -2,10 +2,7 @@ from application import db
 from sqlalchemy.sql import text
 from sqlalchemy.orm import relationship, backref
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
 class Categories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
@@ -16,11 +13,8 @@ class Categories(db.Model):
 
     name = db.Column(db.String(144), nullable=False)
     desc = db.Column(db.String(144), nullable=True)
-<<<<<<< HEAD
 
     aiheet = relationship("Topics", secondary="topics_categories")
-=======
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
 
     def __init__(self, name, desc):
         self.name = name

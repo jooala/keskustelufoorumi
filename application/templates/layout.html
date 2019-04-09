@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html>
   <head>
     <meta charset="utf-8" />
     <title>Keskustelufoorumi</title>
@@ -82,31 +80,3 @@
     <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
   </body>
 </html>
-=======
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Keskustelufoorumi</title>
-    </head>
-    
-    <body>
-        {% if current_user.is_authenticated %}
-        <p>
-    Kirjautunut nimellä {{ current_user.name }} <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
-        </p>
-        {% else %}
-        <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
-        {% endif %}   
-      <ul>
-	<li><a href="{{ url_for('categories_index') }}">Listaa kategoriat</a></li>
-	<li><a href="{{ url_for('categories_form') }}">Lisää kategoria</a></li>
-      </ul>
-      
-      {% block body %}
-      <p>
-	Content.
-      </p>
-      {% endblock %}
-    </body>
-  </html>
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin

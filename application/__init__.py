@@ -24,7 +24,7 @@ from application.categories import views
 from application.auth import models
 from application.auth import views
 
-<<<<<<< HEAD
+
 from application.topics import models
 from application.topics import views
 
@@ -32,8 +32,7 @@ from application.topicscategories import models
 
 from application.register import views
 
-=======
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
+
 # kirjautuminen
 from application.auth.models import User
 from os import urandom
@@ -46,22 +45,19 @@ login_manager.init_app(app)
 login_manager.login_view = "auth_login"
 login_manager.login_message = "Please login to use this functionality."
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
 
-<<<<<<< HEAD
+
 
 # luodaan taulut tietokantaan tarvittaessa
 try:
     db.create_all()
 except:
     pass
-=======
+
 # luodaan taulut tietokantaan tarvittaessa
 db.create_all()
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
+

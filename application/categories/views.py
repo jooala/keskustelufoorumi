@@ -4,32 +4,23 @@ from application.categories.models import Categories
 from application.categories.forms import CategoriesForm
 
 from flask_login import login_required
-<<<<<<< HEAD
 
 
-@app.route("/categories", methods=["GET"])
-def categories_index():
-    return render_template(
-        "categories/list.html", categories=Categories.query.all())
-
-=======
 
 @app.route("/categories", methods=["GET"])
 def categories_index():
     return render_template("categories/list.html", categories = Categories.query.all())
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
 
 @app.route("/categories/new/")
 @login_required
 def categories_form():
-<<<<<<< HEAD
+
     return render_template("categories/new.html", form=CategoriesForm())
 
 
-=======
     return render_template("categories/new.html", form = CategoriesForm())
   
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
+
 @app.route("/categories/<category_id>/", methods=["POST"])
 @login_required
 def categories_set_name(category_id):
@@ -55,15 +46,13 @@ def categories_delete(category_id):
 def categories_create():
     form = CategoriesForm(request.form)
     if not form.validate():
-<<<<<<< HEAD
         return render_template("categories/new.html", form=form)
     t = Categories(form.name.data, form.desc.data)
 
-=======
-        return render_template("categories/new.html", form = form)
+
+    return render_template("categories/new.html", form = form)
     t = Categories(form.name.data, form.desc.data)
   
->>>>>>> 737aaca... muutoksia kirjautumiseen sekä layouttiin
     db.session().add(t)
     db.session().commit()
 

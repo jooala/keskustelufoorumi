@@ -1,0 +1,49 @@
+{% extends "layout.html" %} {% block body %}
+<div class="jumbotron text-center">
+  <h1 class="display-4">Keskustelufoorumi</h1>
+  <p class="lead">
+    Keskustelua jo vuodesta 2019.
+  </p>
+  <hr class="my-4" />
+</div>
+
+{% if find_categories is defined %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" colspan="2">Kategoriat</th>
+      <th scope="col">Aiheita</th>
+      <th scope="col">Viestejä</th>
+      <th scope="col">Viimeisin viesti</th>
+    </tr>
+  </thead>
+  {% for category in find_categories %}
+  <tbody>
+    <tr>
+      <td>
+        <ion-icon
+          size="large"
+          style="display:block;
+        display:block;
+        margin: auto;
+        margin-top: 10px;"
+          name="chatboxes"
+        ></ion-icon>
+      </td>
+      <td>
+        <a
+          href="{{ url_for('category_link', category_id=category.id) }}"
+          name="{{ category.name }}"
+          >{{ category.name }}</a
+        >
+        <br />
+        {{ category.desc }}
+      </td>
+      <td>
+        {{ category.count }}
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %} {% endif %}
+</table>
+{% endblock %}

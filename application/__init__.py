@@ -72,6 +72,7 @@ from application.topics import views
 from application.topicscategories import models
 
 from application.posts import models
+from application.posts import views
 
 from application.register import views
 

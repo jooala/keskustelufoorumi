@@ -3,6 +3,7 @@ from application import app, db, login_required
 from flask import redirect, render_template, request, url_for
 from application.topics.models import Topics
 from application.topics.forms import TopicsForm
+from application.posts.forms import PostsForm
 from application.posts.models import Posts
 
 
@@ -34,5 +35,5 @@ def topics_create(category_id):
 @app.route("/topics/<topic_id>")
 def topic_link(topic_id):
     return render_template(
-        "topics/topic.html", topic_id=topic_id, find_posts=Posts.find_posts(), topics_info=Posts.topics_info(topic_id))
+        "topics/topic.html", topic_id=topic_id, form=PostsForm(), find_posts=Posts.find_posts(topic_id), topics_info=Posts.topics_info(topic_id))
 

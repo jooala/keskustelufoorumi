@@ -22,12 +22,12 @@ class Posts(db.Model):
         self.message = message
 
     @staticmethod
-    def find_posts():
+    def find_posts(topic_id):
         stmt = text(
             "SELECT Posts.id, Posts.message FROM Posts "
             "LEFT JOIN Account ON Account.id = Posts.account_id "
             "LEFT JOIN Topics ON Topics.id = Posts.topics_id "
-            "GROUP BY Posts.id")
+            "WHERE Topics.id = :topic").params(topic=topic_id)
         res = db.engine.execute(stmt)
 
         response = []

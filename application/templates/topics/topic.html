@@ -10,15 +10,31 @@
 <h3 class="my-4 text-center">{{ topic.desc }}</h2>
                 </div>
         </div>
-{% endfor %} {% endif %}
-<div class="card mb-4">
-{% for post in find_posts %}
+{% endfor %}
+
 <section class="row panel-body">
-    <section class="col-md-9">
+      <section class="col-md-12">
+{% for post in find_posts %}
+<div class="card mb-4">
+
       {{ post.message }}
+        </div>
+ 
+
+
+  {% endfor %} {% endif %}  {% endif %}
+
+
+
+<form method="POST" action="{{ url_for('message_create', topic_id=topic_id) }}">
+    {% for error in form.message.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+    {{ form.message (cols="155", rows="5") }}
+  <td colspan="2">
+    <br>
+  <input type="submit" value="Lähetä viesti"/>
+  </td>
   </section>
-</div>
-  {% endfor %} {% endif %}
-</div>
 </section>
 {% endblock %}

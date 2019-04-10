@@ -20,3 +20,9 @@ Password: demo
 
 ### Hahmotelma tietokantakaaviosta:
 - [Tietokantakaavion hahmotelma](https://github.com/jooala/keskustelufoorumi/blob/master/documentation/tietokantakaavio.png)
+
+## Asennusohje
+- [Asennusohje](https://github.com/jooala/keskustelufoorumi/blob/master/documentation/asennusohje.md)
+
+## Käyttöohje
+- [Käyttöohje](https://github.com/jooala/keskustelufoorumi/blob/master/documentation/k%C3%A4ytt%C3%B6ohje.md)

@@ -10,14 +10,10 @@
   <tbody>
     <tr>
       <td>
-        <ion-icon
-          size="large"
-          style="display:block;
+        <ion-icon size="large" style="display:block;
         display:block;
         margin: auto;
-        margin-top: 10px;"
-          name="chatboxes"
-        ></ion-icon>
+        margin-top: 10px;" name="chatboxes"></ion-icon>
       </td>
       <td>
         <a href="{{ url_for('topic_link', topic_id=topic.id) }}" name="{{ topic.name }}">{{ topic.name }}</a>
@@ -31,10 +27,7 @@
   </tbody>
   {% endfor %} {% endif %}
 </table>
-<a
-  class="btn btn-outline-danger my-2 mx-2 my-sm-0"
-  href="{{ url_for('topics_form', category_id=category_id) }}"
-  >Luo uusi aihe</a
->
+<a class="btn btn-primary my-2 mx-2 my-sm-0" href="{{ url_for('topics_form', category_id=category_id) }}">Luo uusi
+  aihe</a>
 
 {% endblock %}

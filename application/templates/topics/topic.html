@@ -4,45 +4,45 @@
 {% for topic in topics_info %}
 
 <section class="container">
-        <div class="panel panel-default">
-                <div class="card mb-4">
-<h1 class="my-4 text-center ">{{ topic.name }}</h1>
-<h3 class="my-4 text-center">{{ topic.desc }}</h2>
-                </div>
-        </div>
-{% endfor %}
-
-<section class="row panel-body">
-      <section class="col-md-12">
-{% for post in find_posts %}
-<div class="card mb-4 shadow-sm">
-  <div class="card-header">
-    <h4 class="my-0 font-weight-normal">
-      {{ post.username}}
-    </h4>
-      {{ post.date }}
+  <div class="panel panel-default">
+    <div class="card mb-4">
+      <h1 class="my-4 text-center ">{{ topic.name }}</h1>
+      <h3 class="my-4 text-center">{{ topic.desc }}</h2>
     </div>
-    <div class="card-body">
-    {{ post.message }}
+  </div>
+  {% endfor %}
+
+  <section class="row panel-body">
+    <section class="col-md-12">
+      {% for post in find_posts %}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">
+            {{ post.username}}
+          </h4>
+          {{ post.date }}
+        </div>
+        <div class="card-body">
+          {{ post.message }}
         </div>
       </div>
- 
-
-
-  {% endfor %} {% endif %}  {% endif %}
 
 
 
-<form method="POST" action="{{ url_for('message_create', topic_id=topic_id) }}">
-    {% for error in form.message.errors %}
-    <li>{{ error }}</li>
-    {% endfor %}
-    {{ form.message (cols="155", rows="5") }}
-  <td colspan="2">
-    <br>
-  <input type="submit" value="Lähetä viesti"/>
-  </td>
-  </form>
+      {% endfor %} {% endif %} {% endif %}
+
+
+
+      <form method="POST" action="{{ url_for('message_create', topic_id=topic_id) }}">
+        {% for error in form.message.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        {{ form.message (cols="155", rows="5") }}
+        <td colspan="2">
+          <br>
+          <input type="submit" value="Lähetä viesti" />
+        </td>
+      </form>
+    </section>
   </section>
-</section>
-{% endblock %}
+  {% endblock %}

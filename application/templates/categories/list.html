@@ -16,8 +16,8 @@
       <td>{{ category.desc }}</td>
       <td>
         <form method="POST" action="{{ url_for('categories_set_text', category_id=category.id) }}">
-          <input type="text" name="name" placeholder="Nimi"/>
-          <input type="text" name="desc"  placeholder="Kuvaus"/>
+          <input type="text" name="name" placeholder="Nimi" />
+          <input type="text" name="desc" placeholder="Kuvaus" />
           <input type="submit" value="Muuta kategorian nimeä ja kuvausta!" />
         </form>
       </td>

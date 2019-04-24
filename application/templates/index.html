@@ -20,21 +20,14 @@
   <tbody>
     <tr>
       <td>
-        <ion-icon
-          size="large"
-          style="display:block;
+        <ion-icon size="large" style="display:block;
         display:block;
         margin: auto;
-        margin-top: 10px;"
-          name="chatboxes"
-        ></ion-icon>
+        margin-top: 10px;" name="chatboxes"></ion-icon>
       </td>
       <td>
-        <a
-          href="{{ url_for('category_link', category_id=category.id) }}"
-          name="{{ category.name }}"
-          >{{ category.name }}</a
-        >
+        <a href="{{ url_for('category_link', category_id=category.id) }}"
+          name="{{ category.name }}">{{ category.name }}</a>
         <br />
         {{ category.desc }}
       </td>
@@ -42,7 +35,7 @@
         {{ category.count }}
       </td>
       <td>
-          {{ category.message_count }}
+        {{ category.message_count }}
       </td>
     </tr>
   </tbody>

@@ -15,25 +15,33 @@ def categories_index():
 @app.route("/categories/new/")
 @login_required(role="ADMIN")
 def categories_form():
-
     return render_template("categories/new.html", form=CategoriesForm())
-
-
-    return render_template("categories/new.html", form = CategoriesForm())
   
 
 @app.route("/categories/<category_id>/", methods=["POST"])
 @login_required(role="ADMIN")
-def categories_set_name(category_id):
+def categories_set_text(category_id):
     form = CategoriesForm(request.form)
     if not form.validate():
         return render_template("categories/list.html", categories = Categories.query.all())
     t = Categories.query.get(category_id)
     t.name = request.form.get("name")
+    t.desc = request.form.get("desc")
     db.session().commit()
 
     return redirect(url_for("categories_index"))
 
+@app.route("/categories/<category_id>/", methods=["POST"])
+@login_required(role="ADMIN")
+def categories_set_desc(category_id):
+    form = CategoriesForm(request.form)
+    if not form.validate():
+        return render_template("categories/list.html", categories = Categories.query.all())
+    t = Categories.query.get(category_id)
+    t.desc = request.form.get("desc")
+    db.session().commit()
+
+    return redirect(url_for("categories_index"))
 
 @app.route("/categories/<category_id>/", methods=["GET", "POST"])
 @login_required(role="ADMIN")

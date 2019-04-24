@@ -35,7 +35,7 @@ class User(db.Model):
 
     def has_rank(self):
         if self.rank == "ADMIN":
-            return True
+            return False
 
        
         

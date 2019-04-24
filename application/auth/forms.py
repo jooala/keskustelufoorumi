@@ -5,11 +5,7 @@ from wtforms import PasswordField, StringField
 class LoginForm(FlaskForm):
     username = StringField("Käyttäjätunnus")
     password = PasswordField("Salasana")
+  
 
-  
-class LoginForm(FlaskForm):
-    username = StringField("Username")
-    password = PasswordField("Password")
-  
     class Meta:
         csrf = False

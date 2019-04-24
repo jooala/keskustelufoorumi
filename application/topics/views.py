@@ -11,19 +11,19 @@ from application.posts.models import Posts
 
 
 @app.route("/topics/new/<category_id>")
-@login_required(role="USER")
+@login_required(role="ANY")
 def topics_form(category_id):
     return render_template(
         "topics/new.html", form=TopicsForm(), category_id=category_id)
 
 
 @app.route("/topics/new/<category_id>/", methods=["POST"])
-@login_required(role="USER")
+@login_required(role="ANY")
 def topics_create(category_id):
     k = Categories.query.get(category_id)
     form = TopicsForm(request.form)
     if not form.validate():
-        return render_template("topics/new.html", form=form, category_id=cate)
+        return render_template("topics/new.html", form=form, category_id=category_id)
     t = Topics(form.name.data, form.desc.data)
     t.account_id = current_user.id
     k.aiheet.append(t)

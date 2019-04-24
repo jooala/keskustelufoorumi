@@ -1,29 +1,34 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+<table class="table table-striped">
+  <thead>
     <tr>
       <th>Kategoria</th>
       <th>Kuvaus</th>
       <th></th>
     </tr>
-    {% for category in categories %}
+  </thead>
+  {% for category in categories %}
+  <tbody>
     <tr>
       <td>{{ category.name }}</td>
       <td>{{ category.desc }}</td>
       <td>
-	<form method="POST" action="{{ url_for('categories_set_name', category_id=category.id) }}">
-     <input type="text" name="name"/>
-	  <input type="submit" value="Muuta kategoriaan nimeä!"/>
-	</form>
+        <form method="POST" action="{{ url_for('categories_set_text', category_id=category.id) }}">
+          <input type="text" name="name" placeholder="Nimi"/>
+          <input type="text" name="desc"  placeholder="Kuvaus"/>
+          <input type="submit" value="Muuta kategorian nimeä ja kuvausta!" />
+        </form>
       </td>
       <td>
-        	<form method="DELETE" action="{{ url_for('categories_delete', category_id=category.id) }}">
-            <input type="hidden"  value="DELETE"/> 
-            <input type="submit" value="Poista!"/>
-             </form>
+        <form method="DELETE" action="{{ url_for('categories_delete', category_id=category.id) }}">
+          <input type="hidden" value="DELETE" />
+          <input type="submit" value="Poista!" />
+        </form>
       </td>
     </tr>
-    {% endfor %}
-  </table>
+  </tbody>
+  {% endfor %}
+</table>
 {% endblock %}

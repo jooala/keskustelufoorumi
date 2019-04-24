@@ -8,6 +8,7 @@ from application.categories.forms import CategoriesForm
 
 
 @app.route("/categories", methods=["GET"])
+@login_required(role="ADMIN")
 def categories_index():
     return render_template("categories/list.html", categories = Categories.query.all())
 

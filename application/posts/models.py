@@ -24,7 +24,7 @@ class Posts(db.Model):
     @staticmethod
     def find_posts(topic_id):
         stmt = text(
-            "SELECT Posts.id, Posts.message FROM Posts "
+            "SELECT Posts.id, Posts.message, Account.username, Posts.date_created FROM Posts "
             "LEFT JOIN Account ON Account.id = Posts.account_id "
             "LEFT JOIN Topics ON Topics.id = Posts.topics_id "
             "WHERE Topics.id = :topic").params(topic=topic_id)
@@ -35,6 +35,8 @@ class Posts(db.Model):
             response.append({
                 "id": row[0],
                 "message": row[1],
+                "username": row[2],
+                "date": row[3],
             })
         return response
 

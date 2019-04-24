@@ -39,6 +39,7 @@ def login_required(role="ANY"):
             if not current_user.is_authenticated:
                 return login_manager.unauthorized()
             
+            
             unauthorized = False
 
             if role != "ANY":
@@ -84,6 +85,8 @@ from application.auth.models import User
 def load_user(user_id):
     return User.query.get(user_id)
 
+def roles(user_id):
+    return User.query.get(roles)
 
 
 # luodaan taulut tietokantaan tarvittaessa

@@ -27,27 +27,15 @@ class Topics(db.Model):
     @staticmethod
     def find_topics(category_id):
         stmt = text(
-            "SELECT Topics.id, Topics.name, Topics.desc FROM Topics "
+            "SELECT Topics.id, Topics.name, Topics.desc, Topics.date_created FROM Topics "
             "LEFT JOIN topics_categories ON topics_categories.topics_id = Topics.id "
-            "LEFT JOIN Categories ON Categories.id = topics_categories.categories_id "
-            "WHERE Categories.id = :category").params(category=category_id)
+            "LEFT JOIN Categories ON Categories.id = topics_categories.categories_id " 
+            "LEFT JOIN Posts ON Posts.topics_id = Topics.id "
+            "WHERE Categories.id = :category "
+            "ORDER BY Topics.date_created DESC ").params(category=category_id)
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"id": row[0], "name": row[1], "desc": row[2]})
-        return response
-
-    @staticmethod
-    def topic_amount(category_id):
-        stmt = text(
-            "SELECT COUNT(*) FROM Topics "
-            "LEFT JOIN topics_categories ON topics_categories.topics_id = Topics.id "
-            "LEFT JOIN Categories ON Categories.id = topics_categories.categories_id "
-            "WHERE Categories.id = :category").params(category=category_id)
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"count": row[0]})
+            response.append({"id": row[0], "name": row[1], "desc": row[2], "created": row[3]})
         return response

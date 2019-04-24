@@ -15,10 +15,17 @@
 <section class="row panel-body">
       <section class="col-md-12">
 {% for post in find_posts %}
-<div class="card mb-4">
-
-      {{ post.message }}
+<div class="card mb-4 shadow-sm">
+  <div class="card-header">
+    <h4 class="my-0 font-weight-normal">
+      {{ post.username}}
+    </h4>
+      {{ post.date }}
+    </div>
+    <div class="card-body">
+    {{ post.message }}
         </div>
+      </div>
  
 
 

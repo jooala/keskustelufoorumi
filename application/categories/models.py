@@ -23,9 +23,10 @@ class Categories(db.Model):
     @staticmethod
     def find_categories():
         stmt = text(
-            "SELECT Categories.id, Categories.name, Categories.desc, COUNT(Topics.id) FROM Categories "
+            "SELECT Categories.id, Categories.name, Categories.desc, COUNT(Topics.id), COUNT(Posts.id) FROM Categories "
             "LEFT JOIN topics_categories ON topics_categories.categories_id = Categories.id "
             "LEFT JOIN Topics ON Topics.id = topics_categories.topics_id "
+            "LEFT JOIN Posts ON Posts.topics_id = Topics.id "
             "GROUP BY Categories.id")
         res = db.engine.execute(stmt)
 
@@ -35,6 +36,8 @@ class Categories(db.Model):
                 "id": row[0],
                 "name": row[1],
                 "desc": row[2],
-                "count": row[3]
+                "count": row[3],
+                "message_count": row[4],
             })
         return response
+

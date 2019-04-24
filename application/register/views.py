@@ -13,7 +13,7 @@ def register_create():
     form = RegisterForm(request.form)
     if not form.validate():
         return render_template("register/register.html", form = form)
-    t = User(form.name.data, form.username.data, form.password.data)
+    t = User(form.name.data, form.username.data, form.password.data, "USER")
   
     db.session().add(t)
     db.session().commit()

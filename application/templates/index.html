@@ -14,7 +14,6 @@
       <th scope="col" colspan="2">Kategoriat</th>
       <th scope="col">Aiheita</th>
       <th scope="col">Viestejä</th>
-      <th scope="col">Viimeisin viesti</th>
     </tr>
   </thead>
   {% for category in find_categories %}
@@ -41,6 +40,9 @@
       </td>
       <td>
         {{ category.count }}
+      </td>
+      <td>
+          {{ category.message_count }}
       </td>
     </tr>
   </tbody>

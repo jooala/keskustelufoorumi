@@ -7,7 +7,7 @@ from flask_login import current_user
 
 
 @app.route("/topics/<topic_id>", methods=["POST"])
-@login_required(role="ADMIN")
+@login_required
 def message_create(topic_id):
     form = PostsForm(request.form)
     if not form.validate():

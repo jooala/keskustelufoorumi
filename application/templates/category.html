@@ -3,8 +3,7 @@
   <thead>
     <tr>
       <th scope="col" colspan="2">Aiheet</th>
-      <th scope="col">Viestejä</th>
-      <th scope="col">Viimeisin viesti</th>
+      <th scope="col">Aihe luotu</th>
     </tr>
   </thead>
   {% for topic in find_topics %}
@@ -24,6 +23,9 @@
         <a href="{{ url_for('topic_link', topic_id=topic.id) }}" name="{{ topic.name }}">{{ topic.name }}</a>
         <br />
         {{ topic.desc }}
+      </td>
+      <td>
+        {{ topic.created }}
       </td>
     </tr>
   </tbody>

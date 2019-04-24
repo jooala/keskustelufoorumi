@@ -10,11 +10,13 @@ class User(db.Model):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    rank = db.Column(db.String(144), nullable=False)
 
-    def __init__(self, name, username, password):
+    def __init__(self, name, username, password, rank):
         self.name = name
         self.username = username
         self.password = password
+        self.rank = rank
 
     def get_id(self):
         return self.id
@@ -29,5 +31,11 @@ class User(db.Model):
         return True
     
     def roles(self):
-        return ["ADMIN"]
+        return [self.rank]
+
+    def has_rank(self):
+        if self.rank == "ADMIN":
+            return True
+
+       
         

@@ -39,3 +39,4 @@ class Topics(db.Model):
         for row in res:
             response.append({"id": row[0], "name": row[1], "desc": row[2], "created": row[3]})
         return response
+

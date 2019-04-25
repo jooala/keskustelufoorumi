@@ -17,10 +17,8 @@
       {% for post in find_posts %}
       <div class="card mb-4 shadow-sm">
         <div class="card-header">
-          <h4 class="my-0 font-weight-normal">
-            {{ post.username}}
-          </h4>
-          {{ post.date }}
+            <a class="font-weight-normal text-dark" href="/user/{{ post.userid }}">{{ post.username}}</a>
+            <h5 class="my-2 font-weight-normal "> {{ post.date }} </h5>
         </div>
         <div class="card-body">
           {{ post.message }}

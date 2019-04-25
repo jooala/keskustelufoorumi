@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block body %} {% if user_info is defined %}
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h2>Muuta tietojasi</h2>
+            </div>
+            <div class="card-body text-left ">
+                <ul class="list-unstyled mt-5 mb-4 ">
+                    <li>Käyttäjänimi: {{ user.username }}</li>
+                    <li>Nimi: {{ user.name }}</li>
+                </ul>
+                <form method="POST" action="{{ url_for('profile_edit_name', user_id=user.id) }}">
+                    <input type="text" name="name" placeholder="Nimi" />
+                    <input type="submit" class="btn btn-success" value="Tallenna" />
+                </form>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

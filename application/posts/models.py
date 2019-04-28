@@ -44,11 +44,12 @@ class Posts(db.Model):
     @staticmethod
     def topics_info(topic_id):
         stmt = text(
-            "SELECT Topics.id, Topics.name, Topics.desc FROM Topics "
-            "WHERE Topics.id = :topic").params(topic=topic_id)
+            "SELECT Topics.id, Topics.name, Topics.desc, Topics.date_created, Account.username, Account.id FROM Topics "
+            "LEFT JOIN Account ON Topics.account_id = Account.id"
+            " WHERE Topics.id = :topic").params(topic=topic_id)
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"id": row[0], "name": row[1], "desc": row[2]})
+            response.append({"id": row[0], "name": row[1], "desc": row[2], "date": row[3], "username": row[4], "userid": row[5]})
         return response

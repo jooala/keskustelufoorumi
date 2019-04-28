@@ -23,6 +23,14 @@
       <td>
         {{ topic.created }}
       </td>
+      {% if current_user.rank == "ADMIN" %}
+      <td>
+          <form method="DELETE" action="{{ url_for('topic_delete', topic_id=topic.id) }}">
+              <input type="hidden" value="DELETE" />
+              <input type="submit" value="Poista aihe" />
+            </form>
+      </td>
+      {% endif %}
     </tr>
   </tbody>
   {% endfor %} {% endif %}

@@ -10,17 +10,9 @@
                     <li>Käyttäjänimi: {{ user.username }}</li>
                     <li>Nimi: {{ user.name }}</li>
                 </ul>
+                {% if current_user.id == user.id %}
                 <a class="btn btn-primary " href="{{ url_for('user_editlink', user_id=user_id) }}">Muuta tietojasi</a>
-                {% endif %}
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                <ul class=flashes>
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-                {% endwith %}
+                {% endif %} {% endif %}
             </div>
         </div>
     </div>

@@ -33,6 +33,15 @@ def topics_create(category_id):
 
     return redirect(url_for("index"))
 
+@app.route("/topics/delete/<topic_id>/", methods=["GET", "POST"])
+@login_required(role="ADMIN")
+def topic_delete(topic_id):
+    t = Topics.query.get(topic_id)
+    db.session().delete(t)
+    db.session().commit()
+
+    return redirect(url_for('index'))
+
 @app.route("/topics/<topic_id>")
 def topic_link(topic_id):
     return render_template(

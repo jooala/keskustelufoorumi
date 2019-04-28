@@ -1,30 +1,27 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('categories_create') }}">
-  <table>
-    <tr>
-      <td>
-        {{ form.name.label }}
-      </td>
-      <td>
-        {{ form.name }}
-      </td>
-      <td>
-        {{ form.desc }}
-      </td>
-      <td>
-        <ul>
-          {% for error in form.name.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-      </td>
-    </tr>
-    <tr>
+<div class="row justify-content-md-center">
+  <form class="col-3" method="POST" action="{{ url_for('categories_create') }}">
+    <div class="form-group">
+      <div class="form-group">
+        <label for="name">{{ form.name.label }}</label>
+        <input type="text" name="name" class="form-control" id="name" />
+      </div>
+      <div class="form-group">
+        <label for="username">{{ form.desc.label }}</label>
+        <input type="text" name="desc" class="form-control" id="desc" />
+      </div>
+      <ul>
+        {% for error in form.name.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
       <td colspan="2">
-        <input type="submit" value="Lisää uusi kategoria" />
+        <input type="submit" class="btn btn-primary" value="Luo uusi kategoria" />
       </td>
-    </tr>
-</form>
+      </tr>
+  </form>
+</div>
+</div>
 {% endblock %}

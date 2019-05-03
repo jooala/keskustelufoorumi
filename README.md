@@ -18,8 +18,8 @@ Password: demo
 ### Oleelliset käyttötapaukset
 - [Oleellisimmat käyttötapaukset](https://github.com/jooala/keskustelufoorumi/blob/master/documentation/k%C3%A4ytt%C3%B6tapaukset.md)
 
-### Hahmotelma tietokantakaaviosta:
-- [Tietokantakaavion hahmotelma](https://github.com/jooala/keskustelufoorumi/blob/master/documentation/tietokantakaavio.png)
+### Tietokannan rakenne
+- [Tietokannan rakenne](https://github.com/jooala/keskustelufoorumi/blob/master/documentation/tietokannanrakenne.md)
 
 ## Asennusohje
 - [Asennusohje](https://github.com/jooala/keskustelufoorumi/blob/master/documentation/asennusohje.md)

@@ -16,7 +16,7 @@ class Topics(db.Model):
     desc = db.Column(db.String(144), nullable=True)
 
     account_id = db.Column(
-        db.Integer, db.ForeignKey('account.id', ondelete='SET NULL'), nullable=True)
+        db.Integer, db.ForeignKey('account.id'), nullable=False)
 
     kategoriat = relationship("Categories", secondary="topics_categories")
 

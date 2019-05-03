@@ -66,3 +66,20 @@ DELETE FROM Categories WHERE id = (valittu.id); # valittu.id on minkä kategoria
 * Voi tehdä kaikkea mitä tavallinen käyttäjä ja kävijä pystyy
 
 
+# Tekemättömät käyttötapaukset ja jatkokehitysideat
+
+## Tekemättömät käyttötapaukset
+
+* Pääkäyttäjä voi poistaa aiheita (Toimi vain lokaalisti, Herokussa antoi virheitä)
+
+## Jatkokehitysideat
+
+* Pääkäyttäjä voi poistaa kommentteja
+* Enemmän asetuksia profiiliin mm. slogan, kuvaus
+* Pääkäyttäjä voi asettaa käyttäjiä pääkäyttäjiksi
+* Kommentteja voi muuttaa kommentin tehnyt käyttäjä
+* Kommentin kirjoittanut voi poistaa kommentin
+* Aiheen luonut voi muuttaa aiheen otsikkoa ja kuvausta
+* Aiheen luonut voi poistaa aiheen
+* Hakutoiminnallisuus aiheille, kommenteille ja käyttäjille
+* Aiheiden järjestys tulisi viestin lähettämisajan mukaan, eli uusin viesti nostaisi aiheen ensimmäiseksi

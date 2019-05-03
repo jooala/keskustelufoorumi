@@ -1,12 +1,12 @@
 # Tietokannan rakenne
 
 ## Tietokantakaavio
-<img src="https://github.com/jooala/keskustelufoorumi/blob/master/documentation/tietokantakaavio.png">
+<img src="https://github.com/jooala/keskustelufoorumi/blob/master/documentation/kaavio.png">
 
 ## Create Table - lauseet
 
 ### Account -taulu
-
+```SQL
 CREATE TABLE Account (
 	id INTEGER,
 	name VARCHAR(144) NOT NULL,
@@ -15,9 +15,9 @@ CREATE TABLE Account (
 	rank VARCHAR(144) NOT NULL,
 	PRIMARY KEY(id)
 );
-
+```
 ### Categories -taulu
-
+```SQL
 CREATE TABLE Categories (
 	id INTEGER,
 	date_created DATETIME,
@@ -26,9 +26,9 @@ CREATE TABLE Categories (
 	desc VARCHAR(144),
 	PRIMARY KEY(id)
 );
-
+```
 ### Topics -taulu
-
+```SQL
 CREATE TABLE Topics (
 	id INTEGER,
 	date_created DATETIME,
@@ -39,9 +39,9 @@ CREATE TABLE Topics (
 	PRIMARY KEY(id),
 	FOREIGN KEY(account_id) REFERENCES Account(id)
 );
-
+```
 ### Posts -taulu
-
+```SQL
 CREATE TABLE Posts (
 	id INTEGER,
 	date_created DATETIME,
@@ -53,9 +53,9 @@ CREATE TABLE Posts (
 	FOREIGN KEY(account_id) REFERENCES Account(id),
 	FOREIGN KEY(topics_id) REFERENCES Topics(id)
 );
-
+```
 ### TopicsCategories -taulu
-
+```SQL
 CREATE TABLE TopicsCategories (
 	id INTEGER,
 	topics_id INTEGER,
@@ -64,3 +64,4 @@ CREATE TABLE TopicsCategories (
 	FOREIGN KEY(topics_id) REFERENCES Topics(id),
 	FOREIGN KEY(categories_id) REFERENCES Categories(id)
 );
+```
